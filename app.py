@@ -1,10 +1,18 @@
 """Main Streamlit entrypoint for PharmaGuard AI."""
 
 from __future__ import annotations
+
 from pathlib import Path
+
 import streamlit as st
 
-from auth.session import ensure_session_state, hydrate_user_preferences, logout_user, session_expired, touch_session
+from auth.session import (
+    ensure_session_state,
+    hydrate_user_preferences,
+    logout_user,
+    session_expired,
+    touch_session,
+)
 from components.layout import load_design_system, render_footer, render_navbar
 from config import settings
 from database.init_db import initialize_database
@@ -25,22 +33,41 @@ from views.upload import render_data_import_page
 
 
 BASE_DIR = Path(__file__).resolve().parent
-CSS_PATH = BASE_DIR / "assets" / "styles.css"
+STYLE_DIR = BASE_DIR / "assets" / "styles"
 
-def load_css():
-    if CSS_PATH.exists():
-        css = CSS_PATH.read_text(encoding="utf-8")
-        st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
-    else:
-        st.error(f"CSS not found: {CSS_PATH}")
 
-st.set_page_config(
-    page_title="PharmaGuard AI",
-    layout="wide",
-    initial_sidebar_state="collapsed"
-)
+def load_css_files() -> None:
+    """Load PharmaGuard CSS files from assets/styles in a stable order."""
 
-load_css()
+    css_files = [
+        "variables.css",
+        "light.css",
+        "dark.css",
+        "layout.css",
+        "components.css",
+        "forms.css",
+        "cards.css",
+        "animations.css",
+        "streamlit_overrides.css",
+        "responsive.css",
+        "final_overrides.css",
+        "theme.css",
+    ]
+
+    css_content: list[str] = []
+
+    for file_name in css_files:
+        css_path = STYLE_DIR / file_name
+        if css_path.exists():
+            css_content.append(css_path.read_text(encoding="utf-8"))
+
+    if css_content:
+        st.markdown(
+            f"<style>{''.join(css_content)}</style>",
+            unsafe_allow_html=True,
+        )
+
+
 def bootstrap() -> None:
     """Configure page, session, design system, and database."""
 
@@ -50,26 +77,34 @@ def bootstrap() -> None:
         layout="wide",
         initial_sidebar_state="collapsed",
     )
+
     ensure_session_state()
     initialize_database()
     hydrate_user_preferences()
+
     load_design_system()
+    load_css_files()
 
 
 def route_current_page() -> None:
     """Route user to the selected page."""
 
     current_page = st.session_state.get("current_page", "landing")
+
     if session_expired():
         logout_user()
         st.warning("نشست شما منقضی شد. لطفاً دوباره وارد شوید.")
         current_page = "login"
+        st.session_state.current_page = "login"
 
     if st.session_state.get("authenticated"):
         touch_session()
+
         user = st.session_state.get("user") or {}
         approval_status = str(user.get("approval_status", "approved"))
-        if user.get("role_code") != "administrator" and approval_status != "approved":
+        role_code = str(user.get("role_code", ""))
+
+        if role_code != "administrator" and approval_status != "approved":
             if current_page not in {"pending_approval", "landing", "features"}:
                 st.session_state.current_page = "pending_approval"
                 current_page = "pending_approval"
