@@ -1,7 +1,7 @@
 """Main Streamlit entrypoint for PharmaGuard AI."""
 
 from __future__ import annotations
-
+from pathlib import Path
 import streamlit as st
 
 from auth.session import ensure_session_state, hydrate_user_preferences, logout_user, session_expired, touch_session
@@ -24,6 +24,23 @@ from views.settings import render_settings_page
 from views.upload import render_data_import_page
 
 
+BASE_DIR = Path(__file__).resolve().parent
+CSS_PATH = BASE_DIR / "assets" / "styles.css"
+
+def load_css():
+    if CSS_PATH.exists():
+        css = CSS_PATH.read_text(encoding="utf-8")
+        st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
+    else:
+        st.error(f"CSS not found: {CSS_PATH}")
+
+st.set_page_config(
+    page_title="PharmaGuard AI",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
+
+load_css()
 def bootstrap() -> None:
     """Configure page, session, design system, and database."""
 
