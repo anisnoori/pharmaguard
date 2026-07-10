@@ -1,4 +1,4 @@
-# PharmaGuard AI — نسخه Production Final v0.12.0
+# PharmaGuard AI — نسخه Production Final v0.0.0
 
 سامانه هوشمند پایش زنجیره تأمین دارو مبتنی بر هوش مصنوعی برای بیمارستان‌ها، داروخانه‌ها و سازمان‌های درمانی.
 
@@ -13,19 +13,7 @@ python -m pip install -r requirements.txt
 streamlit run app.py
 ```
 
-## ادمین اصلی
 
-قبل از دیپلوی، متغیرهای زیر را در فایل `.env` یا Secrets پلتفرم قرار دهید:
-
-```env
-PHARMAGUARD_ADMIN_EMAIL=anisgulnoori93@gmail.com
-PHARMAGUARD_ADMIN_PASSWORD=رمز_قوی_خودت
-PHARMAGUARD_ADMIN_NAME=Anisgul Noori
-PHARMAGUARD_DEFAULT_THEME=light
-APP_ENV=production
-```
-
-اگر دیتابیس قبلاً ساخته شده باشد، برای ساخت دوباره ادمین اصلی باید `database/pharmaguard.db` را حذف کنید یا از پنل مدیریت، کاربر خود را administrator کنید.
 
 ## مسیر استفاده واقعی برای گرفتن داده از داروخانه/بیمارستان
 
@@ -45,13 +33,6 @@ APP_ENV=production
 - `reports/`
 - `logs/`
 
-## دیپلوی
-
-در Hugging Face / Streamlit Cloud / Replit، متغیرهای `.env.example` را در بخش Secrets قرار دهید و سپس دستور زیر را اجرا کنید:
-
-```bash
-streamlit run app.py
-```
 
 ## فایل‌های نمونه برای دریافت داده
 
