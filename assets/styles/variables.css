@@ -1,0 +1,37 @@
+:root {
+  --pg-primary: #1c7ed6;
+  --pg-primary-hover: #1864ab;
+  --pg-primary-active: #145591;
+  --pg-secondary: #0b7285;
+  --pg-success: #2f9e44;
+  --pg-warning: #f08c00;
+  --pg-danger: #e03131;
+  --pg-info: #1971c2;
+  --pg-ai: #7048e8;
+  --pg-bg: #f7fafc;
+  --pg-surface: #ffffff;
+  --pg-card: rgba(255, 255, 255, 0.9);
+  --pg-card-solid: #ffffff;
+  --pg-border: rgba(15, 23, 42, 0.1);
+  --pg-text: #102a43;
+  --pg-heading: #0b2540;
+  --pg-muted: #627d98;
+  --pg-soft: #e7f5ff;
+  --pg-soft-2: #f1f8ff;
+  --pg-divider: rgba(15, 23, 42, 0.08);
+  --pg-hero-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(231, 245, 255, 0.65));
+  --pg-shadow-xs: 0 4px 14px rgba(16, 42, 67, 0.06);
+  --pg-shadow-sm: 0 10px 28px rgba(16, 42, 67, 0.08);
+  --pg-shadow-md: 0 22px 58px rgba(16, 42, 67, 0.12);
+  --pg-shadow-lg: 0 32px 90px rgba(16, 42, 67, 0.16);
+  --pg-radius-sm: 10px;
+  --pg-radius-md: 16px;
+  --pg-radius-lg: 26px;
+  --pg-radius-xl: 34px;
+  --pg-space-xs: 0.35rem;
+  --pg-space-sm: 0.75rem;
+  --pg-space-md: 1.15rem;
+  --pg-space-lg: 1.75rem;
+  --pg-space-xl: 3rem;
+  --pg-font: "Vazirmatn", "IRANSans", "Tahoma", "Arial", sans-serif;
+}

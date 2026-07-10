@@ -1,0 +1,432 @@
+
+/* Final production polish: reliable RTL, dark mode contrast, stable auth/layout. */
+:root {
+  color-scheme: light;
+}
+
+.stApp {
+  overflow-x: hidden !important;
+}
+
+.block-container {
+  max-width: 1180px !important;
+  padding-left: clamp(1rem, 3vw, 2.5rem) !important;
+  padding-right: clamp(1rem, 3vw, 2.5rem) !important;
+}
+
+/* App shell */
+.pg-navbar {
+  position: sticky;
+  top: 0.6rem;
+  z-index: 999;
+  width: 100%;
+  min-height: 72px;
+}
+
+.pg-brand span:last-child {
+  color: var(--pg-heading) !important;
+}
+
+/* Avoid the overcrowded two-row button look as much as Streamlit allows. */
+[data-testid="column"] .stButton > button {
+  width: 100% !important;
+  min-width: 0 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Auth forms must never collapse to a narrow column. */
+.pg-auth-container {
+  max-width: 560px;
+  margin: 1.7rem auto 0;
+}
+
+[data-testid="stForm"] {
+  width: min(760px, 100%) !important;
+  max-width: 760px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  box-sizing: border-box !important;
+}
+
+.pg-auth-container [data-testid="stForm"] {
+  max-width: 560px !important;
+  padding: 1.6rem !important;
+}
+
+[data-testid="stForm"] [data-testid="stVerticalBlock"],
+[data-testid="stForm"] [data-testid="stTextInput"],
+[data-testid="stForm"] [data-testid="stTextArea"],
+[data-testid="stForm"] [data-testid="stSelectbox"],
+[data-testid="stForm"] [data-testid="stNumberInput"],
+[data-testid="stForm"] [data-testid="stDateInput"] {
+  width: 100% !important;
+}
+
+.stTextInput input,
+.stTextArea textarea,
+.stNumberInput input,
+.stDateInput input,
+[data-baseweb="select"] > div {
+  width: 100% !important;
+  box-sizing: border-box !important;
+  caret-color: var(--pg-primary) !important;
+}
+
+.stFormSubmitButton > button,
+.stDownloadButton > button,
+.stButton > button {
+  font-family: var(--pg-font) !important;
+}
+
+/* Strong dark-mode and widget contrast. */
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stMarkdownContainer"],
+[data-testid="stVerticalBlock"],
+[data-testid="stHorizontalBlock"] {
+  color: var(--pg-text) !important;
+}
+
+[data-testid="stMarkdownContainer"] h1,
+[data-testid="stMarkdownContainer"] h2,
+[data-testid="stMarkdownContainer"] h3,
+[data-testid="stMarkdownContainer"] h4,
+[data-testid="stMarkdownContainer"] strong,
+.pg-panel-heading h2,
+.pg-module-hero h1,
+.pg-hero h1 {
+  color: var(--pg-heading) !important;
+  opacity: 1 !important;
+}
+
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li,
+[data-testid="stMarkdownContainer"] span,
+.pg-panel-heading p,
+.pg-module-hero p,
+.pg-card p,
+.pg-footer,
+.pg-clinical-note,
+.pg-finding-card p {
+  color: var(--pg-text) !important;
+  opacity: 0.96 !important;
+}
+
+.pg-card,
+.pg-form-card,
+.pg-footer,
+.pg-finding-card,
+.pg-report-advice,
+.pg-empty-state,
+.pg-clinical-note,
+.pg-danger-zone,
+.pg-prediction-explanation,
+.pg-interaction-contraindicated,
+.pg-interaction-high,
+.pg-interaction-medium,
+.pg-interaction-low,
+[data-testid="stForm"],
+[data-testid="stExpander"] details,
+[data-testid="stMetric"] {
+  background: var(--pg-card) !important;
+  color: var(--pg-text) !important;
+  border-color: var(--pg-border) !important;
+  box-shadow: var(--pg-shadow-sm) !important;
+}
+
+.pg-module-hero,
+.pg-hero,
+.pg-dashboard-header {
+  background: var(--pg-hero-gradient) !important;
+  color: var(--pg-text) !important;
+}
+
+[data-testid="stMetric"] {
+  min-height: 110px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+[data-testid="stMetricLabel"],
+[data-testid="stMetricLabel"] *,
+[data-testid="stMetricValue"],
+[data-testid="stMetricValue"] *,
+[data-testid="stMetricDelta"],
+[data-testid="stMetricDelta"] * {
+  color: var(--pg-heading) !important;
+  opacity: 1 !important;
+  text-shadow: none !important;
+}
+
+[data-testid="stMetricValue"] {
+  font-size: clamp(1.35rem, 2.4vw, 2rem) !important;
+  font-weight: 950 !important;
+}
+
+/* Inputs, select menus, uploaders and popovers. */
+[data-baseweb="input"],
+[data-baseweb="textarea"],
+[data-baseweb="select"] > div,
+[data-baseweb="popover"],
+[data-baseweb="menu"],
+[data-testid="stFileUploader"] section,
+[data-testid="stFileUploader"] section * {
+  background: var(--pg-input) !important;
+  color: var(--pg-text) !important;
+  border-color: var(--pg-border) !important;
+}
+
+[data-baseweb="popover"] ul,
+[data-baseweb="menu"] ul,
+[role="listbox"] {
+  background: var(--pg-card-solid) !important;
+  color: var(--pg-text) !important;
+  border: 1px solid var(--pg-border) !important;
+  box-shadow: var(--pg-shadow-md) !important;
+}
+
+[role="option"],
+[role="option"] * {
+  background: transparent !important;
+  color: var(--pg-text) !important;
+}
+
+[role="option"]:hover,
+[role="option"][aria-selected="true"] {
+  background: var(--pg-soft) !important;
+  color: var(--pg-heading) !important;
+}
+
+[data-testid="stFileUploader"] button,
+.stDownloadButton > button {
+  background: var(--pg-card-solid) !important;
+  color: var(--pg-heading) !important;
+  border: 1px solid var(--pg-border) !important;
+}
+
+/* Dataframes are canvas-based in Streamlit, but the shell still needs contrast. */
+[data-testid="stDataFrame"],
+[data-testid="stDataFrame"] *,
+[data-testid="stTable"],
+[data-testid="stTable"] * {
+  color: var(--pg-text) !important;
+  border-color: var(--pg-border) !important;
+}
+
+[data-testid="stDataFrame"] {
+  border-radius: var(--pg-radius-md) !important;
+  overflow: hidden !important;
+  background: var(--pg-card-solid) !important;
+}
+
+/* Alerts in dark mode. */
+.stAlert,
+.stAlert * {
+  color: var(--pg-heading) !important;
+}
+
+/* Plotly containers. */
+.js-plotly-plot,
+.js-plotly-plot .plotly,
+.js-plotly-plot svg text {
+  font-family: var(--pg-font) !important;
+}
+
+/* Sliders: prevent invisible labels and awkward overflow. */
+[data-testid="stSlider"] {
+  overflow: visible !important;
+}
+[data-testid="stSlider"] label,
+[data-testid="stSlider"] span,
+[data-testid="stSlider"] div {
+  color: var(--pg-text) !important;
+}
+
+/* Tabs */
+[data-testid="stTabs"] div[role="tablist"] {
+  border-radius: 0 !important;
+  background: var(--pg-soft-2) !important;
+  border-bottom: 1px solid var(--pg-border) !important;
+}
+[data-testid="stTabs"] button[role="tab"] {
+  color: var(--pg-text) !important;
+}
+[data-testid="stTabs"] button[aria-selected="true"] {
+  color: var(--pg-primary) !important;
+}
+
+/* Light/dark-compatible status cards. */
+.pg-mini-metrics div,
+.pg-mini-metrics strong,
+.pg-mini-metrics span {
+  color: var(--pg-heading) !important;
+  opacity: 1 !important;
+}
+.pg-mini-metrics span {
+  color: var(--pg-text) !important;
+}
+
+@media (max-width: 900px) {
+  .pg-grid-3,
+  .pg-grid-4,
+  .pg-mini-metrics {
+    grid-template-columns: 1fr !important;
+  }
+  .pg-navbar {
+    position: static;
+  }
+  .pg-auth-container [data-testid="stForm"] {
+    padding: 1rem !important;
+  }
+}
+
+/* v0.12 final stabilization */
+.block-container {
+  padding-top: 1.2rem !important;
+  padding-bottom: 2rem !important;
+}
+
+/* Keep the top navigation as the only global navigation. Dashboard no longer repeats module shortcuts. */
+.pg-navbar + div[data-testid="stHorizontalBlock"] {
+  margin-bottom: 1.75rem !important;
+}
+
+.pg-module-hero,
+.pg-dashboard-header,
+.pg-hero {
+  margin-top: 1.25rem !important;
+  margin-bottom: 1.8rem !important;
+}
+
+.pg-panel-heading {
+  margin-top: 2rem !important;
+  margin-bottom: 1rem !important;
+}
+
+/* Auth and operational forms */
+div[data-testid="stForm"] {
+  width: min(720px, 100%) !important;
+  min-width: min(420px, 100%) !important;
+}
+
+@media (max-width: 680px) {
+  div[data-testid="stForm"] {
+    min-width: 100% !important;
+  }
+}
+
+/* Final dark-mode contrast: buttons, uploaders, menus, inputs. */
+.stButton > button,
+.stDownloadButton > button,
+.stFormSubmitButton > button,
+button[kind="secondary"],
+button[kind="primary"] {
+  color: var(--pg-heading) !important;
+  border-color: var(--pg-border) !important;
+  background: var(--pg-card-solid) !important;
+  opacity: 1 !important;
+}
+
+button[kind="primary"],
+.stButton > button[kind="primary"],
+.stFormSubmitButton > button[kind="primary"] {
+  background: var(--pg-primary) !important;
+  color: #ffffff !important;
+  border-color: var(--pg-primary) !important;
+}
+
+.stButton > button:hover,
+.stDownloadButton > button:hover,
+.stFormSubmitButton > button:hover {
+  border-color: var(--pg-primary) !important;
+  color: var(--pg-heading) !important;
+  filter: brightness(1.04);
+}
+
+.stTextInput input,
+.stTextArea textarea,
+.stNumberInput input,
+.stDateInput input,
+[data-baseweb="select"] > div,
+[data-baseweb="select"] input,
+[data-baseweb="input"] input,
+[data-baseweb="textarea"] textarea {
+  color: var(--pg-text) !important;
+  -webkit-text-fill-color: var(--pg-text) !important;
+  background: var(--pg-input) !important;
+  opacity: 1 !important;
+}
+
+.stTextInput input::placeholder,
+.stTextArea textarea::placeholder,
+[data-baseweb="input"] input::placeholder,
+[data-baseweb="textarea"] textarea::placeholder {
+  color: var(--pg-muted) !important;
+  opacity: 0.95 !important;
+}
+
+[data-testid="stFileUploader"] section,
+[data-testid="stFileUploader"] section div,
+[data-testid="stFileUploader"] section span,
+[data-testid="stFileUploader"] section small {
+  color: var(--pg-text) !important;
+  opacity: 1 !important;
+}
+
+[data-testid="stFileUploader"] button {
+  color: var(--pg-heading) !important;
+  background: var(--pg-card-solid) !important;
+  border: 1px solid var(--pg-border) !important;
+}
+
+[data-baseweb="popover"],
+[data-baseweb="popover"] *,
+[role="listbox"],
+[role="listbox"] * {
+  color: var(--pg-text) !important;
+  opacity: 1 !important;
+}
+
+/* The prediction page now uses number inputs, but keep sliders contained if Streamlit renders one elsewhere. */
+[data-testid="stSlider"] {
+  width: 100% !important;
+  max-width: 100% !important;
+  direction: ltr !important;
+  padding-inline: 0.4rem !important;
+}
+[data-testid="stSlider"] label,
+[data-testid="stSlider"] [data-testid="stWidgetLabel"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+.pg-scenario-panel {
+  width: 100%;
+  padding: 1rem 0 0.3rem;
+}
+
+/* Dark readable callout cards. */
+.pg-clinical-note,
+.pg-report-advice,
+.pg-prediction-explanation,
+.pg-finding-card {
+  background: var(--pg-card) !important;
+  color: var(--pg-text) !important;
+  border: 1px solid var(--pg-border) !important;
+}
+
+.pg-clinical-note *,
+.pg-report-advice *,
+.pg-prediction-explanation *,
+.pg-finding-card * {
+  color: var(--pg-text) !important;
+  opacity: 1 !important;
+}
+
+/* Ensure tables do not overflow the main presentation canvas. */
+[data-testid="stDataFrame"] {
+  max-width: 100% !important;
+}

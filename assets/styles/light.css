@@ -1,0 +1,14 @@
+html[data-theme="light"] {
+  --pg-bg: #f7fafc;
+  --pg-surface: #ffffff;
+  --pg-card: rgba(255, 255, 255, 0.92);
+  --pg-card-solid: #ffffff;
+  --pg-border: rgba(15, 23, 42, 0.1);
+  --pg-text: #102a43;
+  --pg-heading: #0b2540;
+  --pg-muted: #627d98;
+  --pg-soft: #e7f5ff;
+  --pg-soft-2: #f1f8ff;
+  --pg-divider: rgba(15, 23, 42, 0.08);
+  --pg-hero-gradient: linear-gradient(135deg, rgba(255, 255, 255, 0.94), rgba(231, 245, 255, 0.65));
+}

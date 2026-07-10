@@ -1,0 +1,225 @@
+/* Streamlit shell cleanup and RTL hardening. */
+#MainMenu,
+[data-testid="stToolbar"],
+[data-testid="stDecoration"],
+[data-testid="stStatusWidget"],
+[data-testid="stDeployButton"],
+[data-testid="stHeaderActionElements"],
+.stDeployButton,
+.stActionButton,
+.viewerBadge_container__1QSob,
+.viewerBadge_link__1S137,
+.viewerBadge_text__1JaDK {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+header[data-testid="stHeader"] {
+  display: none !important;
+  height: 0 !important;
+  visibility: hidden !important;
+}
+
+[data-testid="stFooter"] {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+[data-testid="stAppViewContainer"] > .main {
+  direction: rtl !important;
+}
+
+[data-testid="stVerticalBlock"],
+[data-testid="stHorizontalBlock"],
+[data-testid="column"] {
+  direction: rtl !important;
+}
+
+[data-testid="stMarkdownContainer"] {
+  direction: rtl !important;
+  text-align: right;
+}
+
+[data-testid="stMetric"] {
+  direction: rtl !important;
+  text-align: right !important;
+  padding: 1rem;
+  border: 1px solid var(--pg-border);
+  border-radius: var(--pg-radius-lg);
+  background: var(--pg-card);
+  box-shadow: var(--pg-shadow-xs);
+}
+
+[data-testid="stMetricLabel"],
+[data-testid="stMetricValue"],
+[data-testid="stMetricDelta"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+[data-testid="stDataFrame"] {
+  direction: rtl !important;
+}
+
+.stDataFrame,
+.stDataFrame * {
+  font-family: var(--pg-font) !important;
+}
+
+.stAlert {
+  direction: rtl !important;
+  text-align: right !important;
+  border-radius: var(--pg-radius-md) !important;
+}
+
+.streamlit-expanderHeader,
+[data-testid="stExpander"] details summary {
+  direction: rtl !important;
+  text-align: right !important;
+  font-weight: 800 !important;
+}
+
+.js-plotly-plot,
+.plotly,
+.plot-container {
+  direction: rtl !important;
+  font-family: var(--pg-font) !important;
+}
+
+[data-testid="stTabs"] {
+  direction: rtl !important;
+}
+
+[data-testid="stTabs"] button {
+  font-family: var(--pg-font) !important;
+  font-weight: 800 !important;
+  direction: rtl !important;
+}
+
+[data-testid="stDataFrame"] div[role="gridcell"],
+[data-testid="stDataFrame"] div[role="columnheader"] {
+  direction: rtl !important;
+  text-align: right !important;
+}
+
+[data-testid="stSlider"] {
+  direction: rtl !important;
+}
+
+[data-testid="stRadio"] div[role="radiogroup"] {
+  direction: rtl !important;
+  justify-content: flex-start !important;
+}
+
+[data-baseweb="select"],
+[data-baseweb="popover"],
+[data-testid="stMultiSelect"] {
+  direction: rtl !important;
+  text-align: right !important;
+  font-family: var(--pg-font) !important;
+}
+
+[data-baseweb="tag"] {
+  direction: rtl !important;
+  font-family: var(--pg-font) !important;
+}
+
+[data-testid="stTextArea"] textarea {
+  direction: rtl !important;
+  text-align: right !important;
+  unicode-bidi: plaintext !important;
+}
+
+
+/* Theme hardening for native Streamlit widgets. */
+.stApp,
+[data-testid="stAppViewContainer"],
+[data-testid="stSidebar"],
+[data-testid="stHeader"] {
+  background-color: var(--pg-bg) !important;
+  color: var(--pg-text) !important;
+}
+
+[data-testid="stMarkdownContainer"] p,
+[data-testid="stMarkdownContainer"] li,
+[data-testid="stMarkdownContainer"] span,
+label,
+.stCaptionContainer,
+[data-baseweb="input"] input,
+[data-baseweb="textarea"] textarea {
+  color: var(--pg-text) !important;
+}
+
+[data-baseweb="input"],
+[data-baseweb="textarea"],
+[data-baseweb="select"] > div,
+[data-testid="stFileUploader"] section,
+[data-testid="stForm"],
+[data-testid="stExpander"] details,
+[data-testid="stTabs"] div[role="tablist"] {
+  background: var(--pg-card-solid) !important;
+  color: var(--pg-text) !important;
+  border-color: var(--pg-border) !important;
+}
+
+[data-testid="stDataFrame"],
+[data-testid="stTable"] {
+  background: var(--pg-card-solid) !important;
+  color: var(--pg-text) !important;
+}
+
+[data-testid="stButton"] button {
+  border-radius: var(--pg-radius-md) !important;
+  border-color: var(--pg-border) !important;
+}
+
+/* Phase 10.1: compact SaaS shell and reliable theme application. */
+.block-container {
+  max-width: 1120px !important;
+  padding-top: 1.25rem !important;
+}
+
+.pg-navbar {
+  position: sticky;
+  top: 0.75rem;
+  z-index: 50;
+}
+
+[data-testid="stHorizontalBlock"]:has(.stButton) {
+  gap: 0.75rem !important;
+}
+
+.stButton > button {
+  background: var(--pg-card-solid) !important;
+  color: var(--pg-heading) !important;
+  border: 1px solid var(--pg-border) !important;
+  min-height: 2.65rem !important;
+  box-shadow: var(--pg-shadow-xs) !important;
+}
+
+.stButton > button[kind="primary"],
+.stFormSubmitButton > button[kind="primary"] {
+  background: var(--pg-primary) !important;
+  color: #ffffff !important;
+  border-color: var(--pg-primary) !important;
+}
+
+[data-testid="stSlider"] {
+  direction: rtl !important;
+  background: transparent !important;
+}
+
+[data-testid="stSlider"] * {
+  font-family: var(--pg-font) !important;
+}
+
+.pg-access-state {
+  max-width: 900px;
+  margin-inline: auto;
+}
+
+.pg-data-quality-good { color: var(--pg-success); font-weight: 900; }
+.pg-data-quality-medium { color: var(--pg-warning); font-weight: 900; }
+.pg-data-quality-low { color: var(--pg-danger); font-weight: 900; }

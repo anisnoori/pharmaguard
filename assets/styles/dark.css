@@ -1,0 +1,14 @@
+html[data-theme="dark"] {
+  --pg-bg: #081827;
+  --pg-surface: #0f2438;
+  --pg-card: rgba(15, 36, 56, 0.94);
+  --pg-card-solid: #0f2438;
+  --pg-border: rgba(203, 213, 225, 0.15);
+  --pg-text: #e6f1fb;
+  --pg-heading: #f6fbff;
+  --pg-muted: #9fb3c8;
+  --pg-soft: rgba(28, 126, 214, 0.18);
+  --pg-soft-2: rgba(231, 245, 255, 0.08);
+  --pg-divider: rgba(203, 213, 225, 0.12);
+  --pg-hero-gradient: linear-gradient(135deg, rgba(15, 36, 56, 0.98), rgba(8, 24, 39, 0.88));
+}
