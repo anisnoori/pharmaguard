@@ -1,0 +1,8 @@
+@keyframes pgFadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pg-hero, .pg-card, .pg-navbar, .pg-form-card {
+  animation: pgFadeUp 420ms ease both;
+}
